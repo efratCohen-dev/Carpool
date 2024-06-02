@@ -2,17 +2,18 @@ const mongoose = require('mongoose');
 const driver = require('./driver');
 
 const driveSchema = new mongoose.Schema({
-    driver: driver,
+    driveId:{ type: 'ObjectId',auto: true },
+    driver: {type:'ObjectId',ref: 'driver'},
     leavingTime:Date,
     startingPoint:{
         city:String,
         street:String,
-        numBuild:number
+        numBuild:Number
     },
-    target:{
+    destination:{
         city:String,
         street:String,
-        numBuild:number
+        numBuild:Number
     },
     price:Number,
     availablePlaces:Number,
